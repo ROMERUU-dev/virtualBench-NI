@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 import queue
+import sys
 import threading
 import time
 from importlib.metadata import PackageNotFoundError, version
@@ -180,6 +181,12 @@ def _software_version() -> str:
         return version("vbarrido-py")
     except PackageNotFoundError:
         return "0.1.0"
+
+
+def _resource_path(name: str) -> Path:
+    if hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS) / name  # type: ignore[attr-defined]
+    return Path(__file__).resolve().parents[2] / name
 
 
 class ToolTip:
@@ -866,7 +873,7 @@ class VBarridoApp(tk.Tk):
         parent = tab.content
         row = 0
         row = self._section(parent, "Conexión recomendada", row)
-        image_path = Path(__file__).resolve().parents[2] / "info.png"
+        image_path = _resource_path("info.png")
         if image_path.exists() and Image is not None and ImageTk is not None:
             with Image.open(image_path) as image:
                 self._info_image_original = image.copy()

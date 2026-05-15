@@ -10,8 +10,8 @@ project_root = Path(SPECPATH).resolve().parents[1]
 
 
 a = Analysis(
-    [str(project_root / "src" / "vbarrido_py" / "gui.py")],
-    pathex=[str(project_root)],
+    [str(project_root / "packaging" / "windows" / "entrypoint.py")],
+    pathex=[str(project_root / "src"), str(project_root)],
     binaries=[],
     datas=[(str(project_root / "info.png"), ".")],
     hiddenimports=hiddenimports,
