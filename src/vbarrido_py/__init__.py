@@ -1,0 +1,1 @@
+﻿"""Replica Python de VBarrido."""

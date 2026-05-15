@@ -1,0 +1,36 @@
+start_hz = 100.0
+stop_hz = 1000000.0
+points = 80
+amplitude_v = 1.0
+dc_offset_v = 0.0
+settle_s = 0.05
+min_gain_db = -30.0
+sample_rate_multiplier = 10.0
+cycles = 30
+averages = 1
+sweep_mode = "Por décadas"
+min_sample_rate_hz = 20000.0
+max_sample_rate_hz = 20000000.0
+
+[device]
+resource = "VB8012-30DF172"
+ch_response = "mso/1"
+ch_reference = "mso/2"
+
+[channel1]
+channel = "mso/1"
+coupling = "DC"
+trigger_hysteresis_v = 0.01
+trigger_reference = "mso/1"
+trigger_slope = "Rising"
+trigger_level_v = 0.0
+probe_attenuation = "1x"
+
+[channel2]
+channel = "mso/2"
+coupling = "DC"
+trigger_hysteresis_v = 0.01
+trigger_reference = "mso/2"
+trigger_slope = "Rising"
+trigger_level_v = 0.0
+probe_attenuation = "1x"
