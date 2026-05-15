@@ -31,6 +31,7 @@ exe = EXE(
     a.datas,
     [],
     name="VBarrido",
+    icon=str(project_root / "assets" / "branding" / "vbarrido.ico"),
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
